@@ -87,6 +87,17 @@
 	cursor: pointer;
 
 	&:hover {
-		filter: brightness(1.2);
+		filter: brightness(1.25);
+	}
+}
+
+.registryText {
+	font-size: 13px;
+	font-weight: bold;
+	color: var(--blue-300);
+	margin-top: 0.5rem;
+
+	&:hover {
+		filter: brightness(1.25);
 	}
 }

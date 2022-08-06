@@ -50,7 +50,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	
 			const { id, name, token } = response.data;
 	
-			setCookie(undefined, '@techLib.token', token, {
+			setCookie(undefined, '@techlib.token', token, {
 				maxAge: 60 * 60 * 24 * 30,
 				Path: '/',
 			})

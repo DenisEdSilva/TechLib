@@ -11,6 +11,9 @@ import { FiMail } from 'react-icons/fi'
 import logo from '../assets/logo.svg'
 import { Button } from '../components/ui/Button';
 import { toast } from 'react-toastify';
+import Link from 'next/link';
+import { canSSRAuth } from '../utils/canSSRAuth';
+import { canSSRGuest } from '../utils/canSSRGuest';
 
 export default function Home() {
 	const { signIn } = useContext(AuthContext)
@@ -85,6 +88,10 @@ export default function Home() {
 							Acessar
 						</Button>
 
+						<Link href="/signup" >
+							<a className={styles.registryText}>Não possui uma conta? Cadastre-se</a>
+						</Link>
+
 					</form>
 				</div>
 
@@ -92,3 +99,10 @@ export default function Home() {
 		</>
   )
 }
+
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+	return {
+		props: {}
+	}
+})
