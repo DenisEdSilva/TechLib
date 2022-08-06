@@ -1,0 +1,19 @@
+.button {
+	max-width: 600px;
+	background-color: var(--blue-100);
+	border: 0;
+	padding: 0.5rem;
+	color: var(--white);
+	border-radius: 0.5rem;
+	transition: filter 0.2s;
+	width: 90%;
+
+	&:hover {
+		filter: brightness(1.15);
+		transition: filter 0.2s;
+	}
+}
+
+.buttonText {
+	color: var(--white);
+}
