@@ -7,6 +7,7 @@ import { api } from '../services/apiClient';
 
 type AuthContextProps = {
 	signIn: (credentials: SignInProps) => Promise<void>
+	signUp: (credentials: SignUpProps) => Promise<void>
 	signOut: () => void;
 }
 
@@ -21,6 +22,11 @@ type UserProps = {
 }
 
 type SignInProps = {
+	email: string,
+	password: string,
+}
+type SignUpProps = {
+	name: string,
 	email: string,
 	password: string,
 }
@@ -68,8 +74,25 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
 	}
 
+	async function signUp({ name, email, password }: SignUpProps) {
+		try {
+			const response = await api.post('/users', {
+				name, 
+				email, 
+				password
+			})
+
+			toast.success('Cadastro realizado com sucesso')
+
+			Router.push('/')
+		} catch (error) {
+			toast.error('Erro ao cadastrar')
+			console.log(error)
+		}
+	}
+
 	return(
-		<AuthContext.Provider value={{ signIn, signOut }} >
+		<AuthContext.Provider value={{ signIn, signOut, signUp }} >
 			{ children }
 		</AuthContext.Provider>
 	)
