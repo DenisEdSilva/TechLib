@@ -23,6 +23,6 @@ export function Button({ loading, children, ...rest }: ButtonProps) {
 				</a>
 			)}
 			
-		</button>
+		</button>   
 	)
 }

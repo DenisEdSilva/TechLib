@@ -13,7 +13,7 @@ export function Input({ ...rest }: InputProps) {
 	)
 }
 
-export function TextArea({ ...rest }) {
+export function TextArea({ ...rest }: TextAreaProps) {
 	return (
 		<textarea className={styles.input} { ...rest } ></textarea>
 	)
